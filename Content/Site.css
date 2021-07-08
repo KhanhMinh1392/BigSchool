@@ -34,7 +34,7 @@ textarea {
 }
 .course {
     list-style: none;
-    margin-top: 15px;
+    margin-top: 0px;
 }
 
 .course > li {
@@ -54,6 +54,19 @@ textarea {
 
 .course > li .detail {
    position: absolute;
-   top: 30px;
+   top: 13px;
    left: 90px;
+}
+.course > li .action {
+    display: none;
+    left: 70px;
+    position: absolute;
+}
+
+.course > li :hover .action {
+    display: block;
+}
+.js-toggle-attendance,
+js-toggle-follow {
+    float:right;
 }
