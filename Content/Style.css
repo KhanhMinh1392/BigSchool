@@ -1,4 +1,4 @@
-﻿body {
+body {
     padding-top: 50px;
     padding-bottom: 20px;
 }
@@ -22,51 +22,56 @@ select,
 textarea {
     max-width: 280px;
 }
+
 .navbar-inverse {
     background-color: #0b5380;
     border-color: #080808;
 }
-.navbar-inverse .navbar-nav>li>a{
-    color:white;
-}
-.navbar-inverse .navbar-brand{
-    color:white;
-}
+
+    .navbar-inverse .navbar-nav > li > a {
+        color: white;
+    }
+
+    .navbar-inverse .navbar-brand {
+        color: white;
+    }
+
 .course {
     list-style: none;
     margin-top: 0px;
 }
 
 .course > li {
-   position: relative;
-   margin-bottom: 30px;
-   padding: 20px;
-   border: 2px solid #0b5380;
+    position: relative;
+    margin-bottom: 30px;
+    padding: 20px;
+    border: 2px solid #0b5380;
 }
 
 .course > li .date {
-   text-align: center;
-   background-color: #d41d50;
-   color: white;
-   width: 60px;
-   border-radius: 8px;
+    text-align: center;
+    background-color: #d41d50;
+    color: white;
+    width: 60px;
+    border-radius: 8px;
 }
 
 .course > li .detail {
-   position: absolute;
-   top: 13px;
-   left: 90px;
+    position: absolute;
+    top: 13px;
+    left: 90px;
 }
+
 .course > li .action {
-    display: none;
-    left: 70px;
+    left: 60px;
     position: absolute;
 }
 
 .course > li :hover .action {
     display: block;
 }
+
 .js-toggle-attendance,
 js-toggle-follow {
-    float:right;
+    float: right;
 }
