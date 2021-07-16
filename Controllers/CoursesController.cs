@@ -48,7 +48,7 @@ namespace BigSchool.Controllers
             };
             _dbContext.Courses.Add(course);
             _dbContext.SaveChanges();
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Mine", "Courses");
         }
         [Authorize]
         public ActionResult Attending()
@@ -66,6 +66,15 @@ namespace BigSchool.Controllers
                 ShowAction = User.Identity.IsAuthenticated
             };
             return View(viewModel);
+        }
+        public ActionResult TeacherFollow()
+        {
+            var userId = User.Identity.GetUserId();
+            var query = from a in _dbContext.Users
+                        join b in _dbContext.Followings on a.Id equals b.FollowerId
+                        where b.FolloweeId == userId
+                        select a;
+            return View(query);
         }
         [Authorize]
         public ActionResult Mine()

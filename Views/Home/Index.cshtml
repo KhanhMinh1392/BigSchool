@@ -2,40 +2,67 @@
 @{
     ViewBag.Title = "Home Page";
 }
+<style>
+    tr, th ,td {
+        border: 2px solid #0b5380;
+        padding: 8px;
+        text-align: center;
+        width: 400px;
+        height: 70px;
+        font-size: 16px;
+    }
+    .date {
+        margin-left:130px;
+        background-color: #d41d50;
+        color: white;
+        width: 60px;
+        border-radius: 8px;
+    }
+    .js-toggle-attendance{
+        margin-right:50px;
+    }
+</style>
 <div class="row">
     <h3>Danh Sách Khóa Học Sắp Diễn Ra</h3>
-    <ul class="course">
+    <table>
+        <tr>
+            <th>Thời Gian</th>
+            <th>Tên</th>
+            <th>Khóa Học</th>
+            <th>Option</th>
+        </tr>
         @foreach (var course in Model.UpcommingCoures)
         {
-            <li>
-                <div class="date">
-                    <div class="month">
-                        @course.DateTime.ToString("MM")
-                    </div>
-                    <div class="day">
-                        @course.DateTime.ToString("dd")
+            <tr>
+                <td>
+                    <div class="date">
+                        <div class="month">
+                            @course.DateTime.ToString("MM")
+                        </div>
+                        <div class="day">
+                            @course.DateTime.ToString("dd")
+
+                        </div>
 
                     </div>
-
-                </div>
-                <div class="detail">
+                </td>
+                <td>
                     <span class="lecture">
                         @course.Lecturer.Name
-                        @if (Model.ShowAction)
-                        {
-                            <button class="btn btn-default btn-sm js-toggle-follow" data-user-id="@course.LecturerId">Follow</button>
-                            <br />
-                        }
+                     
                     </span>
-                    <span class="category">@course.Category.Name</span>
+                </td>
+                <td><span class="category">@course.Category.Name</span></td>
+                <td class="action">
                     @if (Model.ShowAction)
                     {
+                        <button class="btn btn-default btn-sm js-toggle-follow" data-user-id="@course.LecturerId">Follow</button>
                         <button data-course-id="@course.Id" class="btn btn-default btn-sm js-toggle-attendance">Going?</button>
                     }
-                </div>
-            </li>
+                </td>
+            </tr>
         }
-    </ul>
+        </table>
     @section scripts
         {
         <script>
